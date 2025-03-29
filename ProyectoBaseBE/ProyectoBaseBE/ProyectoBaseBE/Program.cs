@@ -12,7 +12,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
-        builder => builder.AllowAnyOrigin().AllowAnyOrigin().AllowAnyMethod());
+        builder => builder.AllowAnyOrigin().AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().WithExposedHeaders("Content-Type").WithOrigins("http://localhost:8081"));
 });
 
 builder.Services.AddControllers();
